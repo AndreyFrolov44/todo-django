@@ -41,7 +41,7 @@ class TodoBlock(models.Model):
 
 class TodoItem(models.Model):
     name = models.CharField(max_length=250)
-    block = models.ForeignKey(TodoBlock, on_delete=models.CASCADE)
+    block = models.ForeignKey(TodoBlock, on_delete=models.CASCADE, related_name='items')
     description = models.TextField(blank=True, null=True)
     date_add = models.DateTimeField(default=timezone.now)
     date_close = models.DateTimeField(blank=True, null=True)
