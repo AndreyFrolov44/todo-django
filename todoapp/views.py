@@ -16,7 +16,7 @@ class TodoBlockListView(generics.ListAPIView):
 class TodoBlockDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = TodoBlock.objects.all()
     serializer_class = TodoBlockDetailSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthorTodo]
 
 
 class TodoBlockCreateView(generics.CreateAPIView):
@@ -28,7 +28,7 @@ class TodoBlockCreateView(generics.CreateAPIView):
 class TodoItemDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemDetailSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthorTodo]
 
 
 class TodoItemCreateView(generics.CreateAPIView):
